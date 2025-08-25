@@ -1,0 +1,419 @@
+{
+  "address": "Eu4kchg5AA7yEjAnSH3yTdShVM6jW1wpsSxgAPLDi6Uz",
+  "metadata": {
+    "name": "sol_raiser",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "donate",
+      "discriminator": [
+        121,
+        186,
+        218,
+        211,
+        73,
+        70,
+        196,
+        180
+      ],
+      "accounts": [
+        {
+          "name": "campaign",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  97,
+                  109,
+                  112,
+                  97,
+                  105,
+                  103,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "campaign.creator",
+                "account": "Campaign"
+              },
+              {
+                "kind": "arg",
+                "path": "data.campaign_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "donor",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "data",
+          "type": {
+            "defined": {
+              "name": "DonateData"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "finalize_campaign",
+      "discriminator": [
+        241,
+        76,
+        201,
+        221,
+        33,
+        222,
+        220,
+        138
+      ],
+      "accounts": [
+        {
+          "name": "campaign",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  97,
+                  109,
+                  112,
+                  97,
+                  105,
+                  103,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              },
+              {
+                "kind": "arg",
+                "path": "data.campaign_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "data",
+          "type": {
+            "defined": {
+              "name": "FinalizeCampaignData"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "initialize_campaign",
+      "discriminator": [
+        169,
+        88,
+        7,
+        6,
+        9,
+        165,
+        65,
+        132
+      ],
+      "accounts": [
+        {
+          "name": "campaign",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  97,
+                  109,
+                  112,
+                  97,
+                  105,
+                  103,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              },
+              {
+                "kind": "arg",
+                "path": "data.campaign_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "data",
+          "type": {
+            "defined": {
+              "name": "InitializeCampaignData"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "refund",
+      "discriminator": [
+        2,
+        96,
+        183,
+        251,
+        63,
+        208,
+        46,
+        46
+      ],
+      "accounts": [
+        {
+          "name": "campaign",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  97,
+                  109,
+                  112,
+                  97,
+                  105,
+                  103,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              },
+              {
+                "kind": "arg",
+                "path": "data.campaign_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "data",
+          "type": {
+            "defined": {
+              "name": "RefundData"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Campaign",
+      "discriminator": [
+        50,
+        40,
+        49,
+        11,
+        157,
+        220,
+        229,
+        192
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidAmount",
+      "msg": "Amount must be greater than zero"
+    },
+    {
+      "code": 6001,
+      "name": "CampaignNotActive",
+      "msg": "The Campaign is not active"
+    },
+    {
+      "code": 6002,
+      "name": "DeadlineExpired",
+      "msg": "The Campaign deadline has expired"
+    },
+    {
+      "code": 6003,
+      "name": "InvalidCreator",
+      "msg": "Invalid campaign creator"
+    },
+    {
+      "code": 6004,
+      "name": "DeadlineNotPassed",
+      "msg": "Deadline has not passed"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidDeadline",
+      "msg": "Deadline must be in the future"
+    },
+    {
+      "code": 6006,
+      "name": "GoalNotReached",
+      "msg": "Goal not reached"
+    },
+    {
+      "code": 6007,
+      "name": "InvalidCampaignId",
+      "msg": "The campaign ID is invalid"
+    }
+  ],
+  "types": [
+    {
+      "name": "Campaign",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "goal",
+            "type": "u64"
+          },
+          {
+            "name": "deadline",
+            "type": "i64"
+          },
+          {
+            "name": "total_raised",
+            "type": "u64"
+          },
+          {
+            "name": "active",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "campaign_id",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DonateData",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "campaign_id",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FinalizeCampaignData",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "campaign_id",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InitializeCampaignData",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "goal",
+            "type": "u64"
+          },
+          {
+            "name": "deadline",
+            "type": "i64"
+          },
+          {
+            "name": "campaign_id",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RefundData",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "campaign_id",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}
