@@ -1,6 +1,6 @@
 # SolRaiser Frontend
 
-**Deployed Frontend URL:** ???
+**Deployed Frontend URL:** https://sol-raiser-two.vercel.app/
 
 ## Project Overview
 
