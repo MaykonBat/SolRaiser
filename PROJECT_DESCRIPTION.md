@@ -1,6 +1,6 @@
 # Project Description
 
-**Deployed Frontend URL:** [TODO: Link to your deployed frontend]
+**Deployed Frontend URL:** https://sol-raiser-two.vercel.app/
 
 **Solana Program ID:** [Eu4kchg5AA7yEjAnSH3yTdShVM6jW1wpsSxgAPLDi6Uz]
 
