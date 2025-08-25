@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "types": ["mocha", "chai", "node"],
+    "typeRoots": ["./node_modules/@types", "./target/types"],
+    "lib": ["es2015"],
+    "module": "commonjs",
+    "target": "es2020",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./*"],
+      "sol_raiser": ["./target/types/sol_raiser"]
+    }
+  },
+  "include": ["tests/**/*.ts", "target/types/*.ts", "node_modules/@coral-xyz/anchor"]
+}
